@@ -1,6 +1,8 @@
+const productos = require('../productos/product')
+
 const controller = {
     index: function (req, res) {
-        res.render('index')
+        res.render('index', {lsProd: productos})
     },
     login: function (req, res) {
         res.render('login')
