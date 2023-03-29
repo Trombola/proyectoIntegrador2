@@ -9,7 +9,10 @@ const controller = {
     },
     register: function (req, res) {
         res.render('register')
-    }
+    },
+    searchResults: function (req, res) {
+        res.render('search-results')
+    },
 
 }
 

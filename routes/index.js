@@ -7,6 +7,7 @@ const controller = require('../controller/indexController')
 router.get('/', controller.index);
 router.get('/login', controller.login);
 router.get('/register', controller.register);
+router.get('/search-results', controller.searchResults);
 
 
 module.exports = router;
