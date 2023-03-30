@@ -25,7 +25,7 @@ const productos = [
         nombre: 'Boca 18/19',
         foto: '/images/products/boca2018.jpg',
         descripcion: 'Camiseta retro Boca Juniors de la temporada 18/19',
-        alt: 'CamisetaPerdedoresDeMadrid',
+        alt: 'CamisetaBocaJr',
         id: 4,
     },
 ]

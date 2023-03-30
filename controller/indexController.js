@@ -2,7 +2,13 @@ const productos = require('../productos/product')
 
 const controller = {
     index: function (req, res) {
-        res.render('index', {lsProd: productos})
+        if(req.params.si){
+            res.render('index', {lsProd: productos, logueado: 'si'})
+        }
+        else{
+            res.render('index', {lsProd: productos, logueado: 'no'})
+        }
+        
     },
     login: function (req, res) {
         res.render('login')
@@ -12,6 +18,12 @@ const controller = {
     },
     searchResults: function (req, res) {
         res.render('search-results')
+    },
+    productAdd: function (req, res) {
+        res.render('product-add')
+    },
+    perfil: function (req, res) {
+        res.render('profile')
     },
 
 }
