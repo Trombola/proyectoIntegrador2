@@ -25,6 +25,12 @@ const controller = {
     perfil: function (req, res) {
         res.render('profile')
     },
+    editar_perfil: function (req, res) {
+        res.render('profile-edit')
+    },
+    product: function (req, res) {
+        res.render('product')
+    },
 
 }
 
