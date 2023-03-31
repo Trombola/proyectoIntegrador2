@@ -1,7 +1,7 @@
 const data = {
     usuario: {
         mail: 'u1@gmail.com',
-        usuario: 'usuario1',
+        usuario: 'Avilla',
         contrasena: 'abc',
         fecha_de_nacimiento: '1/1/2000',
         doc: '21864952',
@@ -35,8 +35,14 @@ const data = {
         },
         {
             nombre: 'Madrid 01/02',
-            foto: '/images/products/madrid.jpg',
+            foto: '/images/products/madrid2001.jpg',
             descripcion: 'Camiseta retro Real Madrid de la temporada 01/02',
+            fecha_de_carga: '31/3/2023'
+        },
+        {
+            nombre: 'Milan 01/02',
+            foto: '/images/products/milan1998.jpg',
+            descripcion: 'Camiseta retro Milan de la temporada 98/99',
             fecha_de_carga: '31/3/2023'
         },
     ],
