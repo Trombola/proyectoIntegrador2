@@ -1,12 +1,12 @@
-const productos = require('../productos/product')
+const data = require('../data/data')
 
 const controller = {
     index: function (req, res) {
         if(req.params.si){
-            res.render('index', {lsProd: productos, logueado: 'si'})
+            res.render('index', {lsProd: data.productos, logueado: 'si', usuario: data.usuario.usuario})
         }
         else{
-            res.render('index', {lsProd: productos, logueado: 'no'})
+            res.render('index', {lsProd: data.productos, logueado: 'no'})
         }
         
     },

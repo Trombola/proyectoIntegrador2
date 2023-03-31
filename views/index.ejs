@@ -41,7 +41,7 @@
 					<section class="product-box">
 						<a href="/product">
 							<figure class="product-box_image">
-								<img src='<%=lsProd[index].foto%>' alt=<%- lsProd[index].alt %> height="250px" width="330px">
+								<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
 							</figure>
 							<article class="product-box_data">
 								<h2><%- lsProd[index].nombre %></h2>
@@ -51,6 +51,9 @@
 						</a>
 					</section>
 				</div>
+				<% if(index==3){%>
+					<% break%>
+				<%}%>
 			<% }%>
 		</div>
 	</div>
@@ -67,7 +70,7 @@
 					<section class="product-box">
 						<a href="/product">
 							<figure class="product-box_image">
-								<img src='<%=lsProd[index].foto%>' alt=<%- lsProd[index].alt %> height="250px" width="330px">
+								<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
 							</figure>
 							<article class="product-box_data">
 								<h2><%- lsProd[index].nombre %></h2>
@@ -77,6 +80,9 @@
 						</a>
 					</section>
 				</div>
+				<% if(index==3){%>
+					<% break%>
+				<%}%>
 			<% }%>
 		</div>
 	</div>
