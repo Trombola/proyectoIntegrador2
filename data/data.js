@@ -45,6 +45,18 @@ const data = {
             descripcion: 'Camiseta retro Milan de la temporada 98/99',
             fecha_de_carga: '31/3/2023'
         },
+        {
+            nombre: 'Betis 21/22',
+            foto: '/images/products/betis2022.jpg',
+            descripcion: 'Camiseta Real Betis de la temporada 21/22',
+            fecha_de_carga: '31/3/2023'
+        },
+        {
+            nombre: 'Brasil 01/02',
+            foto: '/images/products/brasil2002.jpg',
+            descripcion: 'Camiseta retro Brasil de la temporada 01/02',
+            fecha_de_carga: '31/3/2023'
+        },
     ],
     comentarios:[
         {
@@ -53,34 +65,34 @@ const data = {
             imagen: '/images/products/enzo.jpg'
         },
         {
-            nombre_de_usuario: 'enzo912',
-            comentario: 'Boca murio en madrid',
-            imagen: '/images/products/enzo.jpg'
+            nombre_de_usuario: 'benedetto26611',
+            comentario: 'descendio',
+            imagen: '/images/products/benedetto.jpg'
         },
         {
-            nombre_de_usuario: 'enzo912',
-            comentario: 'Boca murio en madrid',
-            imagen: '/images/products/enzo.jpg'
+            nombre_de_usuario: 'carpinchobostero',
+            comentario: 'aguante bokaaa',
+            imagen: '/images/products/carpincho.jpg'
         },
         {
-            nombre_de_usuario: 'enzo912',
-            comentario: 'Boca murio en madrid',
-            imagen: '/images/products/enzo.jpg'
+            nombre_de_usuario: 'messi123',
+            comentario: 'la pulga',
+            imagen: '/images/products/messi.jpg'
         },
         {
-            nombre_de_usuario: 'enzo912',
-            comentario: 'Boca murio en madrid',
-            imagen: '/images/products/enzo.jpg'
+            nombre_de_usuario: 'hasbula',
+            comentario: 'hasbulita',
+            imagen: '/images/products/hasbulacomentario.jpg'
         },
         {
-            nombre_de_usuario: 'enzo912',
-            comentario: 'Boca murio en madrid',
-            imagen: '/images/products/enzo.jpg'
+            nombre_de_usuario: 'riquelmebostero',
+            comentario: 'festejan las ypf',
+            imagen: '/images/products/riquelme.jpg'
         },
         {
-            nombre_de_usuario: 'enzo912',
-            comentario: 'Boca murio en madrid',
-            imagen: '/images/products/enzo.jpg'
+            nombre_de_usuario: 'alpargata',
+            comentario: 'alpargata',
+            imagen: '/images/products/alpargata.jpg'
         },
 
     ]

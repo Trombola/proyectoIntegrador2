@@ -23,7 +23,7 @@ const controller = {
         res.render('product-add', {usuario: data.usuario.usuario})
     },
     perfil: function (req, res) {
-        res.render('profile', {usuario: data.usuario.usuario, foto: data.usuario.fto})
+        res.render('profile', {usuario: data.usuario.usuario, foto: data.usuario.fto,mail: data.usuario.mail})
     },
     editar_perfil: function (req, res) {
         res.render('profile-edit', {usuario: data.usuario.usuario})
