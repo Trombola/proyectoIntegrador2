@@ -8,6 +8,13 @@
   font-family: 'Verdana';
   src: url('https://fonts.cdnfonts.com/s/15633/Verdana.ttf');
 }
+@font-face {
+  font-family: 'Garamond';
+  src: url('garamond-italic.woff2') format('woff2'),
+       url('garamond-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
 
 /*====== Variables ======*/
 
@@ -20,6 +27,7 @@
   --green: #39b54a;
   --base-font-family: 'Monaco', monospace;
   --title-font-family: 'Verdana', Sans-serif;
+  --hipervinculo-font-family: 'Garamond', serif;
 }
 
 
@@ -52,6 +60,7 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: var(--hipervinculo-font-family);
 }
 
 figure {
