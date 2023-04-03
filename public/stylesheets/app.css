@@ -1,8 +1,16 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
+@font-face {
+  font-family: 'Monaco';
+  src: url('https://fonts.cdnfonts.com/s/21324/Monaco.ttf');
+}
+@font-face {
+  font-family: 'Verdana';
+  src: url('https://fonts.cdnfonts.com/s/15633/Verdana.ttf');
+}
 
 /*====== Variables ======*/
+
 :root {
   --yellow: #EAC926;
   --dark-blue: #03264C;
@@ -10,8 +18,8 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Open Sans', sans-serif
-  --title-font-family: 'Montserrat', sans-serif
+  --base-font-family: 'Monaco', monospace;
+  --title-font-family: 'Verdana', Sans-serif;
 }
 
 
@@ -171,10 +179,11 @@ hr {
 }
 
 .products-title {
-  font-size: 60px;
-  font-weight: 1000;
   color: var(--dark-blue);
-  font: var(--title-font-family)
+  font: var(--title-font-family);
+  font-size: 2.4em;
+  font-weight: 300;
+  margin: 0;
 }
 
 .product-box {
