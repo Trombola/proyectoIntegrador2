@@ -68,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: #93caf9;
 }
 
 .main-header_home-link,
@@ -545,4 +545,9 @@ textarea.form-input {
 .formu{
   display: flex;
   justify-content: center;
+}
+
+.fotologo{
+max-width: 100px;
+max-height: 100px;
 }
