@@ -54,6 +54,47 @@
 			</form>
 
 
+			<div class="container products-wrapper formu">
+				<div class="row contenedorPadre">
+					<div class="col-12 contenedorPadre1">
+						<h2 class="products-title">Agregar productos</h2>
+					</div>
+				<form action="/baba" method="get" class="formulario">
+				<!-- Email input -->
+					<div class="form-outline mb-4">
+						<input type="text" id="ftoProducto" name="ftoProducto">
+						<label for="ftoProducto" class="form-label">Imagen del producto:</label>
+					</div>
+		
+					<!-- Password input -->
+					<div class="form-outline mb-4">
+						<input type="password" id="contrasena" name="contrasena">
+						<label class="form-label" for="contrasena">Contraseña</label>
+					</div>
+		
+					<div class="form-outline mb-4">
+						<input type="date" id="fecha" name="fecha" >
+						<label for="fecha" class="form-label">fecha de carga</label>
+						
+					</div>
+					<div class="form-outline mb-4">
+						<input type="number" id="dni" name="dni">
+						<label for="dni" class="form-label">DNI</label>
+					</div>
+					<div class="form-outline mb-4">
+						<input type="text" id="ftoPerfil" name="ftoPerfil">
+						<label for="ftoPerfil" class="form-label">Foto de perfil</label>
+					</div>
+					
+		
+					<!-- Submit button -->
+					<button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
+					
+		
+			</form>
+			</div>
+			</div>
+
 	<!-- footer -->
 	<footer class="main-footer">
 		<%- include('./partials/footer.ejs')%>
