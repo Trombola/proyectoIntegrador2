@@ -58,37 +58,42 @@ const data = {
             fecha_de_carga: '31/3/2023'
         },
         {
-            nombre: 'Villarreal',
+            nombre: 'Villarreal 22/23',
             foto: '/images/products/villarreal.jpg',
             descripcion: 'Camiseta Villarreal temporada 22/23'
         },
         {
-            nombre: 'Valladolid',
+            nombre: 'Valladolid 22/23',
             foto: '/images/products/valladolid.jpg',
             descripcion: 'Camiseta Valladolid temporada 22/23'
         },
         {
-            nombre: 'Estudiantes',
+            nombre: 'Estudiantes 20/21',
             foto: '/images/products/estudiantes.jpg',
             descripcion: 'Camiseta Estudiantes temporada 22/23'
         },
         {
-            nombre: 'Palmeiras',
+            nombre: 'Argentina 1978',
+            foto: '/images/products/argentina78.jpg',
+            descripcion: 'Camiseta Argentina mundial 1978'
+        },
+        {
+            nombre: 'Palmeiras 22/23',
             foto: '/images/products/palmeiras.jpg',
             descripcion: 'Camiseta Palmeiras temporada 22/23'
         },
         {
-            nombre: 'West Ham',
+            nombre: 'West Ham 22/23',
             foto: '/images/products/westham.jpg',
             descripcion: 'Camiseta West Ham temporada 22/23'
         },
         {
-            nombre: 'Racing',
+            nombre: 'Racing 22/23',
             foto: '/images/products/racing.jpg',
             descripcion: 'Camiseta de Racing temporada 22/23'
         },
         {
-            nombre: 'Sacachispas',
+            nombre: 'Sacachispas 21/22',
             foto: '/images/products/sacachispas2021.jpg',
             descripcion: 'Camiseta de Sacachispas temporada 21/22'
         },
