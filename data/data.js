@@ -57,6 +57,41 @@ const data = {
             descripcion: 'Camiseta retro Brasil de la temporada 01/02',
             fecha_de_carga: '31/3/2023'
         },
+        {
+            nombre: 'Villarreal',
+            foto: '/images/products/villarreal.jpg',
+            descripcion: 'Camiseta Villarreal temporada 22/23'
+        },
+        {
+            nombre: 'Valladolid',
+            foto: '/images/products/valladolid.jpg',
+            descripcion: 'Camiseta Valladolid temporada 22/23'
+        },
+        {
+            nombre: 'Estudiantes',
+            foto: '/images/products/estudiantes.jpg',
+            descripcion: 'Camiseta Estudiantes temporada 22/23'
+        },
+        {
+            nombre: 'Palmeiras',
+            foto: '/images/products/palmeiras.jpg',
+            descripcion: 'Camiseta Palmeiras temporada 22/23'
+        },
+        {
+            nombre: 'West Ham',
+            foto: '/images/products/westham.jpg',
+            descripcion: 'Camiseta West Ham temporada 22/23'
+        },
+        {
+            nombre: 'Racing',
+            foto: '/images/products/racing.jpg',
+            descripcion: 'Camiseta de Racing temporada 22/23'
+        },
+        {
+            nombre: 'Sacachispas',
+            foto: '/images/products/sacachispas2021.jpg',
+            descripcion: 'Camiseta de Sacachispas temporada 21/22'
+        },
     ],
     comentarios:[
         {
@@ -96,42 +131,6 @@ const data = {
         },
 
     ],
-    
-    miPerfil:[
-        {
-            nombre: 'Villarreal',
-            foto: '/images/products/villarreal.jpg',
-            descripcion: 'Camiseta Villarreal temporada 22/23'
-        },
-        {
-            nombre: 'Valladolid',
-            foto: '/images/products/valladolid.jpg',
-            descripcion: 'Camiseta Valladolid temporada 22/23'
-        },
-        {
-            nombre: 'estudiantes',
-            foto: '/images/products/estudiantes.jpg',
-            descripcion: 'Camiseta Estudiantes temporada 22/23'
-        },
-        {
-            nombre: 'palmeiras',
-            foto: '/images/products/palmeiras.jpg',
-            descripcion: 'Camiseta Palmeiras temporada 22/23'
-        },
-        {
-            nombre: 'West Ham',
-            foto: '/images/products/westham.jpg',
-            descripcion: 'Camiseta West Ham temporada 22/23'
-        },
-        {
-            nombre: 'Racing',
-            foto: '/images/products/racing.jpg',
-            descripcion: 'Camiseta de Racing temporada 22/23'
-        }
-    ]
-
-    
-
     
 }
 
