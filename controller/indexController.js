@@ -17,7 +17,7 @@ const controller = {
         return res.render('register')
     },
     searchResults: function (req, res) {
-        return res.render('search-results')
+        return res.render('search-results', {lsProd: data.productos})
     },
     productAdd: function (req, res) {
         return res.render('product-add', {usuario: data.usuario.usuario})
