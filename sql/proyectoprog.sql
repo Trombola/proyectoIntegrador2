@@ -1,4 +1,5 @@
-USE script;
+create schema base_de_datos;
+use base_de_datos;
 
 create table usuarios(
 id int unsigned primary key auto_increment,
