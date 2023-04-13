@@ -58,9 +58,53 @@ updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null
 );
 
-insert into comentarios (id,post_id,usuario_id,comentario) values(default,"3","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"1","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"1","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"1","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"1","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"2","1","RIBBBBER DE LA B");
 insert into comentarios (id,post_id,usuario_id,comentario) values(default,"2","1","EL MAS GRANDE");
-insert into comentarios (id,post_id,usuario_id,comentario) values(default,"4","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"2","2","Me encanta!!!!");
 insert into comentarios (id,post_id,usuario_id,comentario) values(default,"2","3","Aupa aleti jeee");
 
 
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"3","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"3","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"3","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"3","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"4","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"4","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"4","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"4","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"5","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"5","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"5","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"5","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"6","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"6","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"6","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"6","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"7","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"7","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"7","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"7","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"8","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"8","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"8","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"8","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"9","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"9","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"9","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"9","3","Aupa aleti jeee");
+
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"10","1","RIBBBBER DE LA B");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"10","1","EL MAS GRANDE");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"10","2","Me encanta!!!!");
+insert into comentarios (id,post_id,usuario_id,comentario) values(default,"10","3","Aupa aleti jeee");
