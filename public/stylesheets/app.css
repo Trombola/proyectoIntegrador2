@@ -10,10 +10,7 @@
 }
 @font-face {
   font-family: 'Garamond';
-  src: url('garamond-italic.woff2') format('woff2'),
-       url('garamond-italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
+  src: url('https://fonts.cdnfonts.com/css/garamond');
 }
 
 /*====== Variables ======*/
