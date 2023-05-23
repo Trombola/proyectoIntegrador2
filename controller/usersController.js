@@ -1,6 +1,7 @@
 const data = require('../data/data')
 const db = require('../database/models')
 const usuario = db.Usuario
+const bcrypt = require('bcrypt')
 
 const usersController={
     perfil: function (req, res) {
@@ -16,9 +17,10 @@ const usersController={
         return res.render('register')
     },
     create: function (req, res) {
+        /* validaciones dni */
         usuario.create({
              email: req.body.email,
-             contrasenia: req.body.contrasenia,
+             contrasenia: bcrypt.hashSync(req.body.contrasenia, req.body.contrasenia.length),
              fecha_de_nacimiento: req.body.fecha,
              dni: req.body.dni,
              foto_de_perfil: req.body.ftoPerfil,
