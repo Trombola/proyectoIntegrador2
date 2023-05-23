@@ -42,7 +42,7 @@ module.exports = function(sequelize, dataTypes){
     let config = {
         tableName: 'usuarios',
         timestamps: true,
-        underscored: false,
+        
     }
     const usuario = sequelize.define(alias, cols, config)
     usuario.associate = function(models){

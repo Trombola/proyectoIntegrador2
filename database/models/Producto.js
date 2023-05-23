@@ -37,16 +37,17 @@ module.exports = function (sequelize, dataTypes){
         underscored: false, 
     }
 
-    const prod = sequelize.define(alias, cols, config)
-    prod.associate = function(models){
-        prod.belongsTo(models.Usuario, {
+    const Producto = sequelize.define(alias, cols, config)
+    Producto.associate = function(models){
+        Producto.belongsTo(models.Usuario, {
             as: 'usuario',
             foreignKey: 'usuario_id'
-        })
-        prod.hasMany(models.Comentario, {
+        });
+        Producto.hasMany(models.Comentario, {
             as: 'comentario',
             foreignKey: 'post_id'
         })
+        
     } 
-    return prod
+    return Producto
 }

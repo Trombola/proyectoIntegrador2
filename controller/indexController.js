@@ -1,28 +1,34 @@
 const data = require('../data/data')
 const db = require('../database/models');
-/* const op = db.Sequelize.Op
 const Productos = db.Producto;
-const fecha = new Date()
+const Comentario = db.Comentario
+const Usuario = db.Usuario
 
+
+
+/*  FUNCIONA TODO LO QUE FALLABA ERA QUE NO HABIAN COMENTARIOS EN LOS ULTIMOS PRODUCTOS AGREGADOS
 Productos.findAll({
-    limit: 8, 
-    where: {
-        createdAt: {[op.lte]:fecha},
-    }})
+    limit: 8,
+    order: [['createdAt', 'DESC']],
+    include: [{association: 'comentario'},{association: 'usuario'}]
+    })
     
     .then(function(data) {
-        console.log(data);
+        console.log(data[3].comentario.length);
+        
     }) */
 
 
 const indexController = {
+    
     index: function (req, res) {
         if(req.params.si){
-            return res.render('index', {lsProd: data.productos, logueado: 'si', usuario: data.usuario.usuario})
+            return res.render('index', {lsProd: data, logueado: 'si', usuario: data.usuario.usuario})
         }
         else{
-           return res.render('index', {lsProd: data.productos, logueado: 'no'})
+           return res.render('index', {lsProd: data, logueado: 'no'})
         }
+        
     }
 }
 
