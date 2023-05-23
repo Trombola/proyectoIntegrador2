@@ -22,12 +22,21 @@ Productos.findAll({
 const indexController = {
     
     index: function (req, res) {
-        if(req.params.si){
-            return res.render('index', {lsProd: data, logueado: 'si', usuario: data.usuario.usuario})
-        }
-        else{
-           return res.render('index', {lsProd: data, logueado: 'no'})
-        }
+        Productos.findAll({
+            limit: 8,
+            order: [['createdAt', 'DESC']],
+            include: [{association: 'comentario'},{association: 'usuario'}]
+            })
+            
+            .then(function(datas) {
+                if(req.params.si){
+                    return res.render('index', {lsProd: datas, logueado: 'si', usuario: data.usuario.usuario})
+                }
+                else{
+                   return res.render('index', {lsProd: datas, logueado: 'no'})
+                }
+            }) 
+        
         
     }
 }
