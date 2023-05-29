@@ -14,18 +14,22 @@ const usersController={
         return res.render('login')
     },
     register: function (req, res) {
-        return res.render('register')
+        return res.render('register', {error: ''})
     },
     create: function (req, res) {
-        /* validaciones dni */
+        /* validacion mail*/
+        
         usuario.create({
-             email: req.body.email,
-             contrasenia: bcrypt.hashSync(req.body.contrasenia, req.body.contrasenia.length),
-             fecha_de_nacimiento: req.body.fecha,
-             dni: req.body.dni,
-             foto_de_perfil: req.body.ftoPerfil,
+            email: req.body.email,
+            contrasenia: bcrypt.hashSync(req.body.contrasenia, req.body.contrasenia.length),
+            fecha_de_nacimiento: req.body.fecha,
+            dni: req.body.dni,
+            foto_de_perfil: req.body.ftoPerfil,
             })
-        res.redirect('/')
-    }
+        res.redirect('/')    
+        }
+        
+        
+    
 }
 module.exports=usersController;
