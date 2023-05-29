@@ -6,10 +6,10 @@ const bcrypt = require('bcrypt')
 
 const usersController={
     perfil: function (req, res) {
-        return res.render('profile', {usuario: data.usuario.usuario, foto: data.usuario.fto, mail: data.usuario.mail, perfil: data.productos})
+        return res.render('profile', {foto: data.usuario.fto, mail: data.usuario.mail, perfil: data.productos})
     },
     editar_perfil: function (req, res) {
-        return res.render('profile-edit', {usuario: data.usuario.usuario})
+        return res.render('profile-edit')
     },
     login: function (req, res) {
         return res.render('login', {error: ''})
@@ -24,12 +24,12 @@ const usersController={
                 if(check){
                     
                     if(req.body.checkbox == 'on'){
-                        res.cookie('usuario', data.username, {maxAge: 1000 * 60 * 5})
+                        req.session.nombreUsuario = data.username
                         
                         return res.redirect('/')
                     }
                     else{
-                        res.cookie('usuario', data.username, {maxAge: 1000 * 60 * 5})
+                        req.session.nombreUsuario = data.username
                         return res.redirect('/')
                     }
                     

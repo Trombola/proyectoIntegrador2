@@ -27,8 +27,11 @@ const indexController = {
             
             .then(function(data) {
                 
-                return res.render('index', {lsProd: data, usuario: req.cookies.usuario})
+                return res.render('index', {lsProd: data})
                 
+            })
+            .catch(function (err) {
+                console.log(err);
             }) 
         
         
