@@ -1,8 +1,5 @@
-const data = require('../data/data')
 const db = require('../database/models');
 const Productos = db.Producto;
-const Comentario = db.Comentario
-const Usuario = db.Usuario
 
 
 
@@ -28,13 +25,10 @@ const indexController = {
             include: [{association: 'comentario'},{association: 'usuario'}]
             })
             
-            .then(function(datas) {
-                if(req.params.si){
-                    return res.render('index', {lsProd: datas, logueado: 'si', usuario: data.usuario.usuario})
-                }
-                else{
-                   return res.render('index', {lsProd: datas, logueado: 'no'})
-                }
+            .then(function(data) {
+                
+                return res.render('index', {lsProd: data, usuario: req.cookies.usuario})
+                
             }) 
         
         
