@@ -3,6 +3,7 @@ use base_de_datos;
 
 create table usuarios(
 id int unsigned primary key auto_increment,
+username varchar(200) unique not null,
 email varchar(200) unique not null,
 contrasenia varchar(200) not null,
 fecha_de_nacimiento date,
@@ -12,11 +13,11 @@ createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null
 );
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"anto@gmail.com","antonio123",'2004-05-12',22222321,"foto.jpg");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"tomas@gmail.com","chiculato67",'2004-04-13',82402321,"foto.jpg");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"eze@gmail.com","bocalove",'2003-07-20',91202321,"foto.jpg");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"garnacho@gmail.com","garn49",'2004-05-24',444082321,"foto.jpg");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"pipa@gmail.com","pipa100",'1975-10-15',156322519,"foto.jpg");
+insert into usuarios (id,username,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"fish","anto@gmail.com","antonio123",'2004-05-12',22222321,"foto.jpg");
+insert into usuarios (id,username,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"corti","tomas@gmail.com","chiculato67",'2004-04-13',82402321,"foto.jpg");
+insert into usuarios (id,username,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"ezegames","eze@gmail.com","bocalove",'2003-07-20',91202321,"foto.jpg");
+insert into usuarios (id,username,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"garnachito","garnacho@gmail.com","garn49",'2004-05-24',444082321,"foto.jpg");
+insert into usuarios (id,username,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"pipita","pipa@gmail.com","pipa100",'1975-10-15',156322519,"foto.jpg");
 
 
 
