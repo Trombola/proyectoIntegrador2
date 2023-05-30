@@ -48,7 +48,7 @@ const usersController={
         
     },
     logout: function (req, res) {
-        res.clearCookie('usuario')
+        req.session.nombreUsuario = undefined
         return res.redirect('/')
     },
     register: function (req, res) {

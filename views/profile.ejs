@@ -17,7 +17,7 @@
 <body>
 	<!-- Header -->
 	<header class="main-header">
-		<%- include('./partials/headerLogueado.ejs', {user: usuario})%>
+		<%- include('./partials/headerLogueado.ejs')%>	
 	</header>
 	<!-- /Header -->
 
@@ -29,7 +29,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%- usuario%> 
+					<h1 class="main-title"><%- user%> 
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>

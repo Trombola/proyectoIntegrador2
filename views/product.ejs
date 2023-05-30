@@ -19,7 +19,11 @@
 	
 	<!-- /Header -->
 	<header class="main-header">
-		<%- include('./partials/header.ejs')%>
+		<% if (user != null) {%>
+			<%- include('./partials/headerLogueado.ejs')%>
+		<%} else{%>
+			<%- include('./partials/header.ejs')%>
+		<%}%>
 	</header>
 	<!-- product detail -->
 	<div class="container products-wrapper">
