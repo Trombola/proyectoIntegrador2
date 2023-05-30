@@ -6,6 +6,12 @@ const bcrypt = require('bcrypt')
 
 const usersController={
     perfil: function (req, res) {
+        /* usuario.findOne({
+            where: [{id: req.params.id}]
+        })
+        .then(function (data) {
+            console.log(data);
+        }) */
         return res.render('profile', {foto: data.usuario.fto, mail: data.usuario.mail, perfil: data.productos})
     },
     editar_perfil: function (req, res) {
@@ -25,7 +31,6 @@ const usersController={
                     
                     if(req.body.checkbox == 'on'){
                         req.session.nombreUsuario = data.username
-                        
                         return res.redirect('/')
                     }
                     else{
