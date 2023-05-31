@@ -10,6 +10,9 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER.UNSIGNED,
             allowNull: false,
         },
+        foto:{
+            type: dataTypes.STRING,
+        },
         producto: {
             type: dataTypes.STRING,
             allowNull: false,

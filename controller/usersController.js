@@ -1,4 +1,4 @@
-const data = require('../data/data')
+const datan = require('../data/data')
 const db = require('../database/models')
 const usuario = db.Usuario
 const bcrypt = require('bcrypt')
@@ -6,13 +6,20 @@ const bcrypt = require('bcrypt')
 
 const usersController={
     perfil: function (req, res) {
-        /* usuario.findOne({
-            where: [{id: req.params.id}]
+        
+        usuario.findOne({
+            where: [{username: req.session.nombreUsuario}],
+            include: [{association: 'comentarios'},{association: 'productos'}]
         })
-        .then(function (data) {
+        .then(function(data){
             console.log(data);
-        }) */
-        return res.render('profile', {foto: data.usuario.fto, mail: data.usuario.mail, perfil: data.productos})
+            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos})
+            //Falta que creemos productos y comentarios de cada perfil, ademas deberiamos hacer un condicional en el ejs para que aparezca una leyenda si no hay productos
+        })
+        
+    },
+    perfil_id: function (req, res) {
+        return res.render('profile', {foto: datan.usuario.fto, mail: datan.usuario.mail, perfil: datan.productos})
     },
     editar_perfil: function (req, res) {
         return res.render('profile-edit')
@@ -21,6 +28,7 @@ const usersController={
         return res.render('login', {error: ''})
     },
     login_check: function (req, res) {
+        //FALTA LO DE LA CHECKBOX
         usuario.findOne({
             where: [{email: req.body.email}]
         })
@@ -31,10 +39,12 @@ const usersController={
                     
                     if(req.body.checkbox == 'on'){
                         req.session.nombreUsuario = data.username
+                        req.session.identificador = data.id
                         return res.redirect('/')
                     }
                     else{
                         req.session.nombreUsuario = data.username
+                        req.session.identificador = data.id
                         return res.redirect('/')
                     }
                     

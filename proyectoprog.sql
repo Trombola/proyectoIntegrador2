@@ -24,6 +24,7 @@ insert into usuarios (id,username,email,contrasenia,fecha_de_nacimiento,dni,foto
 create table productos(
 id int unsigned primary key auto_increment,
 usuario_id INT UNSIGNED NOT NULL,
+foto varchar(500) not null,
 producto text not null,
 descripcionProd text not null,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -33,16 +34,16 @@ deletedAt timestamp null,
 FOREIGN KEY(usuario_id) references usuarios(id)
 );
 
-insert into productos (id,usuario_id,producto,descripcionProd) values(default,2,"camiseta Man United","Camiseta del Manchester United 07/08");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,3,"camiseta Barcelona","Camiseta del Barcelona 11/12");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,3,"camiseta River","Camiseta del River 86/87");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,4,"camiseta Boca","Camiseta del Boca Juniors 18/19");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,1,"camiseta Real Madrid","Camiseta del Real Madrid 01/02");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,1,"camiseta Milan","Camiseta del Milan 01/02");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,5,"camiseta Betis","Camiseta del Betis 21/22");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,2,"camiseta Brasil","Camiseta de Brasil 01/02");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,1,"camiseta Villarreal","Camiseta del Villarreal 22/23");
-insert into productos (id,usuario_id,producto,descripcionProd)values(default,3,"camiseta Valladolid","Camiseta del Valladolid 22/23");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/ManU2008.jpg',2,"camiseta Man United","Camiseta del Manchester United 07/08");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/barca2012.jpg',3,"camiseta Barcelona","Camiseta del Barcelona 11/12");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/river1986.jpg',3,"camiseta River","Camiseta del River 86/87");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/boca2018.jpg',4,"camiseta Boca","Camiseta del Boca Juniors 18/19");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/madrid2001.jpg',1,"camiseta Real Madrid","Camiseta del Real Madrid 01/02");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/milan1998.jpg',1,"camiseta Milan","Camiseta del Milan 01/02");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/betis2022.jpg',5,"camiseta Betis","Camiseta del Betis 21/22");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/brasil2002.jpg',2,"camiseta Brasil","Camiseta de Brasil 01/02");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/villarreal.jpg',1,"camiseta Villarreal","Camiseta del Villarreal 22/23");
+insert into productos (id,foto,usuario_id,producto,descripcionProd)values(default,'/images/products/valladolid.jpg',3,"camiseta Valladolid","Camiseta del Valladolid 22/23");
 
 create table comentarios(
 id int unsigned primary key auto_increment,

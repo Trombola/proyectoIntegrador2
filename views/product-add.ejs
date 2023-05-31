@@ -29,30 +29,24 @@
 				<div class="col-12 contenedorPadre1">
 					<h2 class="products-title">Agregar productos</h2>
 				</div>
-			<form action="/logueado" method="get" class="formulario">
+			<form action="/products/product-add" method="post" class="formulario">
 				
 				<div class="form-outline mb-4">
-					<input type="file" id="ftoProducto" name="ftoProducto">
-					<label for="ftoProducto" class="form-label">Imagen del producto</label>
+					<input type="file" id="img" name="img" required>
+					<label for="img" class="form-label">Imagen del producto</label>
 				</div>
 	
 					
 				<div class="form-outline mb-4">
-					<input type="text" id="nombreProd" name="nombreProd">
+					<input type="text" id="nombreProd" name="nombreProd" required>
 					<label for="nombreProd" class="form-label">Nombre del producto</label>
 				</div>
 					
 				<div class="form-outline mb-4">
-					<input type="text" id="Descripcion" name="Descripcion">
+					<input type="text" id="Descripcion" name="Descripcion" required>
 					<label for="Descripción" class="form-label">Descripcion del producto </label>
 				</div>
-
-				<div class="form-outline mb-4">
-					<input type="date" id="fecha" name="fecha" >
-					<label for="fecha" class="form-label">fecha de carga</label>		
-				</div>
-					
-					
+	
 		
 					<!-- Submit button -->
 				<button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
