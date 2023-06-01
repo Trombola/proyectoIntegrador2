@@ -26,34 +26,28 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
+	<h1>Resultados de búsqueda</h1> <!--Falta que diga como variable lo que se busco-->
 	<div class="container products-wrapper">
 		<div class="row">
-			<!-- Show the "ultimos" products -->
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Resultados de búsqueda</h2>
-				</div>
-				<!-- Show the "ultimos" products -->
-				<% for (let index = 0; index < lsProd.length; index++) {%>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/products/product">
-								<figure class="product-box_image">
-									<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
-								</figure>
-								<article class="product-box_data">
-									<h2><%- lsProd[index].nombre %></h2>
-									<p><%- lsProd[index].descripcion%></p>
-									<p>Comentarios: 12</p>
-								</article>
-							</a>
-						</section>
-					</div>
-					<% if(index==3){%>
-						<% break%>
-					<%}%>
-				<% }%>
+			<div class="col-12">
+				<h2 class="products-title">Novedades</h2>
 			</div>
+	<% for (let i = 0; i < productos.length; i++) { %>
+		<div class="col-12 col-sm-6 col-lg-3">
+			<section  class="product-box">
+				<a href="/products/product">
+				<figure class="product-box_image">
+					<img src="<%= productos[i].foto %>"  alt='' height="250px" width="330px">
+				</figure>
+				<article class="product-box_data">
+					<h2><%= productos[i].producto %></h2>
+					<p><%= productos[i].descripcionProd %></p>
+					<p>Vendido por: <%= productos[i].usuario.username %></p>
+				</article>
+				</a>
+			</section>
+		</div>
+	  <% } %>
 	<!-- footer -->
 	<footer class="main-footer">
 		<%- include('./partials/footer.ejs')%>

@@ -1,11 +1,30 @@
 const data = require('../data/data')
 const db = require('../database/models')
 const producto = db.Producto
-const usuario = db.usuario
+const usuario = db.Usuario
+const op = db.Sequelize.Op;
+
 
 const productsController={
     searchResults: function (req, res) {
-        return res.render('search-results', {lsProd: data.productos})
+        const busqueda = req.query.search; // Criterio de búsqueda proporcionado por el usuario
+        console.log(busqueda);
+        producto.findAll({
+          where: {
+            [op.or]: [
+              { producto: { [op.like]: `%${busqueda}%` } },
+              { descripcionProd: { [op.like]: `%${busqueda}%` } },
+            ],
+          },
+          order: [['createdAt', 'DESC']],
+          include: [{model: usuario, as: 'usuario'},],
+        })
+          .then(productos => {
+            if (productos.length === 0) {
+              return res.send('No hay resultados para su criterio de búsqueda');
+            }
+            res.render('search-results', { productos });
+          })
     },
     productAdd: function (req, res) {
         return res.render('product-add')
