@@ -13,7 +13,7 @@ const usersController={
         })
         .then(function(data){
             console.log(data);
-            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos})
+            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios    })
             //Falta que creemos productos y comentarios de cada perfil, ademas deberiamos hacer un condicional en el ejs para que aparezca una leyenda si no hay productos
         })
         
