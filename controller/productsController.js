@@ -21,11 +21,9 @@ const productsController={
           include: [{model: usuario, as: 'usuario'},],
         })
           .then(productos => {
-            if (productos.length === 0) {
-              return res.send('No hay resultados para su criterio de búsqueda');
-            }
-            res.render('search-results', { productos });
-          })
+            if (productos) {
+              res.render('search-results', {productos,busqueda});
+            }})
     },
     productAdd: function (req, res) {
         return res.render('product-add')
