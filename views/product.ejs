@@ -28,7 +28,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= producto.producto %></h2> 
 			<p class="product-detail-description">
 				<a href="/products/product-add">Editar</a>
 			</p>
@@ -38,20 +38,25 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src=<%-producto.foto%> alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%-producto.descripcion%></p>
+						<%-producto.descripcionProd%></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+					<% if (comentarios == 'No hay comentarios') { %>
+						<p>No hay comentarios en esta publicacion</p>
+					<% } else {%>
+
 						<% for (let index = 0; index < comentarios.length; index++) {%>
 							<article>
-								<img src=<%- comentarios[index].imagen %> alt="">
+								<img src=<%= comentarios[index].usuario.foto_de_perfil %> alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/users/profile"><%- comentarios[index].nombre_de_usuario %> </a> </strong>
+									<strong> <a href="/users/profile/<%= comentarios[index].usuario.id %>"><%= comentarios[index].usuario.username %> </a> </strong>
 									<%- comentarios[index].comentario %></p>
 								</div>
 							</article>
-						<% } %>
+						<% }} %>
+						
 					</section>
 					<form class="form" action="/product" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">

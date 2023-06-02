@@ -1,3 +1,4 @@
+const { error, log } = require('console');
 const data = require('../data/data')
 const db = require('../database/models')
 const producto = db.Producto
@@ -31,16 +32,28 @@ const productsController={
     },
     create: function (req, res) {
         //Esto funciona falta lo de la foto
-        /* producto.create({
+        producto.create({
             usuario_id: req.session.identificador,
             foto: req.body.ftoProducto,
             producto: req.body.nombreProd,
             descripcionProd: req.body.Descripcion,
-        }) */
+        })
         return res.redirect('/')
     },
     product: function (req, res) {
-        return res.render('product', {producto: data.productos[2], comentarios: data.comentarios})
+        let id = req.params.id;
+        producto.findByPk(id, 
+            {include: [{association: 'comentario', include: [{association:'usuario'}]},{ association: 'usuario'}]})
+        .then(function (data) {
+            // Falta ver como podemos hacer para validar si tiene comentarios o no, me tira error
+            if(data){
+                return res.render('product', {producto: data, comentarios: data.comentario})
+            }
+            else{
+                return res.render('product', {producto: data, comentarios: 'No hay comentarios'})
+            }
+        })
+        .catch(function (err) {console.log(err);})
     },
 }
 module.exports=productsController;
