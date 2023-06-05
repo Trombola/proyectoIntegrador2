@@ -12,6 +12,7 @@ module.exports = function (sequelize, dataTypes){
         },
         foto:{
             type: dataTypes.STRING,
+            allowNull: false
         },
         producto: {
             type: dataTypes.STRING,

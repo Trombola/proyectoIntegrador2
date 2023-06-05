@@ -12,7 +12,7 @@ const productsController={
         console.log(busqueda);
         producto.findAll({
           where: {
-            [op.or]: [
+            [op.or]: [ 
               { producto: { [op.like]: `%${busqueda}%` } },
               { descripcionProd: { [op.like]: `%${busqueda}%` } },
             ],
@@ -30,9 +30,10 @@ const productsController={
     },
     create: function (req, res) {
         //Esto funciona falta lo de la foto
+        console.log(req.body.img);
         producto.create({
             usuario_id: req.session.identificador,
-            foto: req.body.ftoProducto,
+            foto: req.body.img,
             producto: req.body.nombreProd,
             descripcionProd: req.body.Descripcion,
         })
