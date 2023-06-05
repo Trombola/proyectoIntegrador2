@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt')
 
 const usersController={
     perfil: function (req, res) {
-        
         usuario.findOne({
             where: [{username: req.session.nombreUsuario}],
             include: [{association: 'comentarios'},{association: 'productos'}]

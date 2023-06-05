@@ -46,7 +46,8 @@
 							<article class="product-box_data">
 								<h2><%- lsProd[index].producto %></h2>
 								<p><%- lsProd[index].descripcionProd%></p>
-								<p>Comentarios: 12</p>
+								<p>Publicado por: <strong><a href="/users/profile/<%= lsProd[index].usuario.id %>"><%-lsProd[index].usuario.username%></a></strong></p>
+								<p>Comentarios: <strong>12</strong></p>
 							</article>
 						</a>
 					</section>
@@ -75,7 +76,8 @@
 							<article class="product-box_data">
 								<h2><%- lsProd[index].producto %></h2>
 								<p><%- lsProd[index].descripcionProd%></p>
-								<p>Comentarios: 12</p>
+								<p>Comentarios: <strong>12</strong></p>
+								<p>Publicado por: <strong><a href="/users/profile/<%= lsProd[index].usuario.id %>"><%-lsProd[index].usuario.username%></a></strong></p>
 							</article>
 						</a>
 					</section>

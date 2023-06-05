@@ -42,7 +42,6 @@
 					<ul class="">
 						<li><%= perfil.length %> productos</li>
 						<li>200 seguidores</li>
-						<li><%= comentarios.length %> comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -60,7 +59,7 @@
 			<% for (let index = 8; index < perfil.length; index++) {%>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/product">
+						<a href="/products/product/<%= perfil[index].id  %>">
 							<figure class="product-box_image">
 								<img src="<%=perfil[index].foto%>" alt="" height="250" width="330">
 							</figure>
@@ -79,7 +78,7 @@
 			<% for (let index = 12; index < perfil.length; index++) {%>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/products/product">
+						<a href="/products/product/<%= perfil[index].id  %>">
 							<figure class="product-box_image">
 								<img src="<%=perfil[index].foto%>" alt="" height="250" width="330">
 							</figure>
