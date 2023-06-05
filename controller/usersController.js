@@ -12,13 +12,22 @@ const usersController={
         })
         .then(function(data){
             console.log(data);
-            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios    })
+            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username, log: true})
             //Falta que creemos productos y comentarios de cada perfil, ademas deberiamos hacer un condicional en el ejs para que aparezca una leyenda si no hay productos
         })
+        .catch(function(err){console.log(err);})
         
     },
     perfil_id: function (req, res) {
-        return res.render('profile', {foto: datan.usuario.fto, mail: datan.usuario.mail, perfil: datan.productos})
+        let id = req.params.id
+        usuario.findByPk(id, 
+            {include: [{association: 'comentarios'},{association: 'productos'}]}
+        )
+        .then(function(data){
+            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username, log: false})
+            //return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username})
+        })
+        .catch(function(err){console.log(err);})
     },
     editar_perfil: function (req, res) {
         return res.render('profile-edit')
