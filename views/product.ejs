@@ -58,10 +58,15 @@
 						<% }} %>
 						
 					</section>
-					<form class="form" action="/products/product/<%= producto.id %>" method="get">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
+					<% if (user != null) {%>
+						<form class="form" action="/products/product/<%= producto.id %>" method="post">
+							<input class="form-input" name='comentario' type="text" value="" placeholder="Agregar comentario" required>
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+					<%} else{%>
+						<h2>Para poder agregar comentarios debes iniciar sesion</h2>
+					<%}%>
+					
 					<hr>
 				</div>
 			</div>

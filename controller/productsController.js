@@ -3,6 +3,7 @@ const data = require('../data/data')
 const db = require('../database/models')
 const producto = db.Producto
 const usuario = db.Usuario
+const comentario = db.Comentario
 const op = db.Sequelize.Op;
 
 
@@ -54,5 +55,24 @@ const productsController={
         })
         .catch(function (err) {console.log(err);})
     },
+    addComment: function (req, res) {
+    
+      usuario.findOne({
+        where: [{username: req.session.nombreUsuario}]
+      })
+      .then(function (data) {
+        const id = req.params.id;
+        let coment = req.body.comentario
+        console.log(data.id);
+        comentario.create({
+         post_id: id, usuario_id: data.id , comentario: coment
+        })
+        return res.redirect(`/products/product/${id}`)
+      })
+      .catch(function (err) {console.log(err);})
+      
+      
+      
+    }
 }
 module.exports=productsController;
