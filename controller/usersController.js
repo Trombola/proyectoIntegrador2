@@ -114,7 +114,10 @@ const usersController={
         const busqueda = req.query.search;
         console.log(busqueda);
         usuario.findAll({
-            where: {username: { [op.like]: `%${busqueda}%` } },
+            where: {[op.or]: [ 
+                { username: { [op.like]: `%${busqueda}%` } },
+                { email: { [op.like]: `%${busqueda}%` } },
+              ]},
             order: [['createdAt', 'DESC']],
             include: [{association:'productos'},],
             })
