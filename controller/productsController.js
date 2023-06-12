@@ -19,7 +19,7 @@ const productsController={
             ],
           },
           order: [['createdAt', 'DESC']],
-          include: [{model: usuario, as: 'usuario'},],
+          include: [{association:'usuario'},],
         })
           .then(productos => {
             if (productos) {
