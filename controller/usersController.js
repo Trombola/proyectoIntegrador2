@@ -2,6 +2,7 @@ const datan = require('../data/data')
 const db = require('../database/models')
 const usuario = db.Usuario
 const bcrypt = require('bcrypt')
+const op = db.Sequelize.Op;
 
 
 const usersController={
@@ -108,9 +109,19 @@ const usersController={
             })
         }
          
-        }
-        
-        
-    
+        },
+    usuarioResults: function (req, res) {
+        const busqueda = req.query.search;
+        console.log(busqueda);
+        usuario.findAll({
+            where: {username: { [op.like]: `%${busqueda}%` } },
+            order: [['createdAt', 'DESC']],
+            include: [{association:'productos'},],
+            })
+            .then(usuarios => {
+                if (usuarios) {
+                  res.render('search-usuario', {usuarios,busqueda});
+                }})
+    },
 }
 module.exports=usersController;

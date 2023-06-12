@@ -26,7 +26,7 @@
 	<!-- /Header -->
 
 	<!-- Novedades -->
-	<%if(productos.length == 0){%>
+	<%if(usuarios.length == 0){%>
 		<h1 display="flex" align="center" class="products-title">No hay resultados de búsqueda para "<%=busqueda%>"</h1>
 	<%}else{%>
 		<h1 display="flex" align="center" class="products-title">Resultados de búsqueda para "<%=busqueda%>"</h1>
@@ -34,17 +34,15 @@
 			<div class="row">
 				<div class="col-12">
 				</div>
-					<% for (let i = 0; i < productos.length; i++) { %>
+					<% for (let i = 0; i < usuarios.length; i++) { %>
 					<div class="col-12 col-sm-6 col-lg-3">
 					<section  class="product-box">
-						<a href="/users/product/<%= productos[i].id %>">
+						<a href="/users/profile/<%= usuarios[i].id %>">
 						<figure class="product-box_image">
-							<img src="<%= productos[i].foto %>"  alt='' height="250px" width="330px">
+							<img src="<%= usuarios[i].foto_de_perfil %>"  alt='' height="250px" width="330px">
 						</figure>
 						<article class="product-box_data">
-							<h2><%= productos[i].producto %></h2>
-							<p><%= productos[i].descripcionProd %></p>
-							<p>Vendido por: <%= productos[i].usuario.username %></p>
+							<h2><%= usuarios[i].username %></h2>
 						</article>
 						</a>
 					</section>
