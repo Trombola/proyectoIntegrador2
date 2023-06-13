@@ -77,9 +77,10 @@ const productsController={
     editar: function (req,res) {
       producto.findByPk(req.params.id)
         .then(function (productos) {
-          res.render('editarProducto', {producto:producto}) //crear vista :)
+          res.render('editarProducto', {producto:producto}) 
         
       })
+      .catch(function (err) {console.log(err);})
     },
     update: function (req,res) {
       producto.update({
@@ -90,7 +91,7 @@ const productsController={
     }, { 
         where: {id: req.params.id}  
         })
-        return res.redirect(`/products`)
+        return res.redirect('/products')
       
     },
     borrarProducto: function (req,res) {
@@ -99,9 +100,10 @@ const productsController={
           producto.destroy({
             where:  {id: req.params.id } 
             })
-      return res.redirect(`/products`)
+            return res.redirect('/')
       }
-    }
+     
+    },
 
 }
 module.exports=productsController;
