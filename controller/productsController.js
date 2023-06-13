@@ -74,7 +74,23 @@ const productsController={
       
       
     },
-    editarProducto: function (req,res) {
+    editar: function (req,res) {
+      producto.findByPk(req.params.id)
+        .then(function (productos) {
+          res.render('editarProducto', {producto:producto}) //crear vista :)
+        
+      })
+    },
+    update: function (req,res) {
+      producto.update({
+        usuario_id: req.session.identificador,
+        foto: req.body.img,
+        producto: req.body.nombreProd,
+        descripcionProd: req.body.Descripcion,
+    }, { 
+        where: {id: req.params.id}  
+        })
+        return res.redirect(`/products`)
       
     },
     borrarProducto: function (req,res) {
