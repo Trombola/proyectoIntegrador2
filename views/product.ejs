@@ -67,6 +67,14 @@
 						<h2>Para poder agregar comentarios debes iniciar sesion</h2>
 					<%}%>
 					
+					<% if (user != null) {%>
+						<form class="form" action="/products/product/<%= producto.id %>" method="post">
+							<button type="submit" class="buy-now-button">DELETE</button>
+						</form>
+					<%} else{%>
+						<h2>Para poder borrar un producto debes iniciar sesion</h2>
+					<%}%>
+					
 					<hr>
 				</div>
 			</div>

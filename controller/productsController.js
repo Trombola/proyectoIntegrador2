@@ -73,6 +73,19 @@ const productsController={
       
       
       
+    },
+    editarProducto: function (req,res) {
+      
+    },
+    borrarProducto: function (req,res) {
+    
+        if (req.session.nombreUsuario = data.username){
+          producto.destroy({
+            where:  {id: req.params.id } 
+            })
+      return res.redirect(`/products`)
+      }
     }
+
 }
 module.exports=productsController;

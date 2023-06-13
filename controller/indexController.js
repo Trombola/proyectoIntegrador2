@@ -3,7 +3,7 @@ const Productos = db.Producto;
 
 
 
-const indexController = {
+const indexController = {/////////
     
     index: function (req, res) {
         Productos.findAll({
