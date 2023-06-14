@@ -1,6 +1,7 @@
 const { error, log } = require('console');
 const data = require('../data/data')
-const db = require('../database/models')
+const db = require('../database/models');
+const { findSourceMap } = require('module');
 const producto = db.Producto
 const usuario = db.Usuario
 const comentario = db.Comentario
@@ -75,24 +76,42 @@ const productsController={
       
     },
     editar: function (req,res) {
-      producto.findByPk(req.params.id)
-        .then(function (productos) {
-          res.render('editarProducto', {producto:producto}) 
-        
-      })
-      .catch(function (err) {console.log(err);})
+     return res.render("editarProducto",{
+      producto:req.body.producto,
+      descripcionProd: req.body.descripcionProd,
+      foto: req.body.foto,
+      id: req.body.id
+     })
     },
     update: function (req,res) {
-      producto.update({
-        usuario_id: req.session.identificador,
-        foto: req.body.img,
-        producto: req.body.nombreProd,
-        descripcionProd: req.body.Descripcion,
-    }, { 
-        where: {id: req.params.id}  
+      if(req.body.producto != ""){
+        producto.update({
+          producto: req.body.producto
+        },{
+          where:{
+            id:req.body.id
+          }
         })
-        return res.redirect('/products')
-      
+      }
+      if(req.body.foto != ""){
+        producto.update({
+          foto: req.body.foto
+        },{
+          where:{
+            id:req.body.id
+          }
+        })
+      }
+      if(req.body.descripcionProd != ""){
+        producto.update({
+          descripcionProd: req.body.descripcionProd
+        },{
+          where:{
+            id:req.body.id
+          }
+        })
+      }
+      return res.redirect("/")  
     },
     borrarProducto: function (req,res) {
     

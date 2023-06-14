@@ -29,9 +29,16 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto.producto %></h2> 
-			<p class="product-detail-description">
-				<a href="/products/editar">Editar</a>
-			</p>
+			<% if (user !=  null && userId == producto.dataValues.usuario.dataValues.id) { %>
+				<form action="/products/formEdit" method="post">
+					<input type="hidden" name="id" value="<%= producto.dataValues.id %>" >
+					<input type="hidden" name="producto" value="<%= producto.dataValues.producto %>">
+					<input type="hidden" name="descripcionProd" value="<%= producto.dataValues.descripcionProd %>">
+					<input type="hidden" name="foto" value="<%= producto.dataValues.foto %>">
+					<input type="hidden" name="id" value="<% producto.dataValues.id %>">
+					<input type="submit" value="Editar">
+				</form>
+			<% } %>
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -68,11 +75,9 @@
 					<%}%>
 					
 					<% if (user != null) {%>
-						<form class="form" action="/products/product/<%= producto.id %>" method="post">
+						<form class="form" action="/products/formEdit" method="post">
 							<button type="submit" class="buy-now-button">DELETE</button>
 						</form>
-					<%} else{%>
-						<h2>Para poder borrar un producto debes iniciar sesion</h2>  
 					<%}%>
 					
 					<hr>

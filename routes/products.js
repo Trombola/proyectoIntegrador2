@@ -8,8 +8,8 @@ router.get('/product-add', productsController.productAdd);
 router.post('/product-add', productsController.create);
 router.get('/product/:id?', productsController.product);
 router.post('/product/:id?', productsController.addComment);
-router.get('/editar', productsController.editar);
-router.post('/editar', productsController.update);
+router.post('/formEdit', productsController.editar);
+router.post('/update', productsController.update);
 
 router.post('/product/:id?', productsController.borrarProducto);
 

@@ -30,6 +30,7 @@ app.use(session({
 
 app.use(function (req, res, next) {
   res.locals.user = req.session.nombreUsuario
+  res.locals.userId = req.session.identificador
   return next()
 })
 
