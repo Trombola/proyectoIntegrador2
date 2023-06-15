@@ -114,15 +114,10 @@ const productsController={
       return res.redirect("/")  
     },
     borrarProducto: function (req,res) {
-    
-        if (req.session.nombreUsuario = data.username){
-          producto.destroy({
-            where:  {id: req.params.id } 
-            })
-            return res.redirect('/')
-      }
-     
-    },
+    comentario.destroy({where:{post_id:req.body.id}})
+    producto.destroy({where:{id:req.body.id}})
+      return res.redirect("/")
+  }
 
 }
 module.exports=productsController;

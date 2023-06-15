@@ -11,7 +11,7 @@ router.post('/product/:id?', productsController.addComment);
 router.post('/formEdit', productsController.editar);
 router.post('/update', productsController.update);
 
-router.post('/product/:id?', productsController.borrarProducto);
+router.post('/delete', productsController.borrarProducto);
 
 
 
