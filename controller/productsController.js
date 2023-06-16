@@ -1,7 +1,4 @@
-const { error, log } = require('console');
-const data = require('../data/data')
 const db = require('../database/models');
-const { findSourceMap } = require('module');
 const producto = db.Producto
 const usuario = db.Usuario
 const comentario = db.Comentario
@@ -34,7 +31,7 @@ const productsController={
         //Esto funciona falta lo de la foto
         console.log(req.body.img);
         producto.create({
-            usuario_id: req.session.identificador,
+            usuario_id: req.session.nombreUsuario.id,
             foto: req.body.img,
             producto: req.body.nombreProd,
             descripcionProd: req.body.Descripcion,
@@ -44,7 +41,10 @@ const productsController={
     product: function (req, res) {
         let id = req.params.id;
         producto.findByPk(id, 
-            {include: [{association: 'comentario', include: [{association:'usuario'}]},{ association: 'usuario'}]})
+            {
+              include: [{association: 'comentario', include: [{association:'usuario'}]},{ association: 'usuario'}],
+              order: [[{model: db.Comentario, as: 'comentario'}, 'createdAt', 'DESC']]
+          })
         .then(function (data) {
             // Falta ver como podemos hacer para validar si tiene comentarios o no, me tira error
             if(data){
@@ -59,7 +59,7 @@ const productsController={
     addComment: function (req, res) {
     
       usuario.findOne({
-        where: [{username: req.session.nombreUsuario}]
+        where: [{id: req.session.nombreUsuario.id}]
       })
       .then(function (data) {
         const id = req.params.id;

@@ -34,8 +34,8 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center">
-					<% if (user == nombreUsuario) {%>
-						<h1 class="main-title"><%- user%> 
+					<% if (user.id == id) {%>
+						<h1 class="main-title"><%- user.username%> 
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -68,6 +68,9 @@
 			<div class="col-12">
 				<h2 class="products-title">Mis productos</h2>
 			</div>
+			<% if (perfil.length == 0) {%>
+				<h2>Este usuario no ha subido ningun producto</h2>
+			<% } %>
 			<!-- Show mis productos -->
 			<% for (let index = 0; index < perfil.length; index++) {%>
 				<div class="col-12 col-sm-6 col-lg-3">

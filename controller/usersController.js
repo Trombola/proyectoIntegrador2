@@ -1,4 +1,3 @@
-const datan = require('../data/data')
 const db = require('../database/models')
 const usuario = db.Usuario
 const bcrypt = require('bcrypt')
@@ -6,32 +5,23 @@ const op = db.Sequelize.Op;
 
 
 const usersController={
-    perfil: function (req, res) {
-        usuario.findOne({
-            where: [{username: req.session.nombreUsuario}],
-            include: [{association: 'comentarios'},{association: 'productos'}]
-        })
-        .then(function(data){
-            console.log(data);
-            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username, log: true})
-            //Falta que creemos productos y comentarios de cada perfil, ademas deberiamos hacer un condicional en el ejs para que aparezca una leyenda si no hay productos
-        })
-        .catch(function(err){console.log(err);})
-        
-    },
     perfil_id: function (req, res) {
         let id = req.params.id
         usuario.findByPk(id, 
-            {include: [{association: 'comentarios'},{association: 'productos'}]}
+            {
+              include: [{association: 'comentarios'},{association: 'productos'}],
+              order: [[{model: db.Producto, as: 'productos'}, 'createdAt', 'DESC']]
+            }
+
         )
         .then(function(data){
-            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username, log: false})
-            //return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username})
+            
+            return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username, id: data.id})
         })
         .catch(function(err){console.log(err);})
     },
     editarperfil: function (req,res) {
-        let id = req.session.identificador
+        let id = req.session.nombreUsuario.id
         usuario.findOne({
             where:[{id:id}],
         })
@@ -40,7 +30,7 @@ const usersController={
         })
     },
     guardarprofile:(req,res)=>{
-        let id = req.session.identificador
+        let id = req.session.nombreUsuario.id
         if(req.body.usuario != ""){
             usuario.update({
               username: req.body.usuario
@@ -79,7 +69,7 @@ const usersController={
           }
         if(req.body.contrasenia != ""){
             usuario.update({
-              contrasenia: bcrypt.hashSync(req.body.contrasenia,12)
+              contrasenia: bcrypt.hashSync(req.body.contrasenia, req.body.contrasenia.length)
             },{
               where:{
                 id:id
@@ -105,13 +95,18 @@ const usersController={
             })
           }
           req.session.destroy()
+          res.clearCookie('usuario')
           return res.redirect("/")
         },
     login: function (req,res) {
-        return res.render('login', {error: ''})
+      if (req.session.nombreUsuario != undefined) {
+        return res.redirect('/')
+      }else{
+        return res.render('login')
+      }
     },
     login_check: function (req, res) {
-        //FALTA LO DE LA CHECKBOX
+        error = {}
         usuario.findOne({
             where: [{email: req.body.email}]
         })
@@ -121,24 +116,27 @@ const usersController={
                 if(check){
                     
                     if(req.body.checkbox == 'on'){
-                        req.session.nombreUsuario = data.username
-                        req.session.identificador = data.id
+                        req.session.nombreUsuario = data
+                        res.cookie('usuario', data, {maxAge: 1000*60*5})
                         return res.redirect('/')
                     }
                     else{
-                        req.session.nombreUsuario = data.username
-                        req.session.identificador = data.id
+                        req.session.nombreUsuario = data
                         return res.redirect('/')
                     }
                     
                     
                 }
                 else{
-                    return res.render('login', {error: 'La contraseña es incorrecta'})
+                  error.message = 'la contraseña es incorrecta'
+                  res.locals.errors = error
+                  return res.render('login')
                 }
             }
             else{
-                return res.render('login', {error: 'El email es incorrecto'})
+              error.message = 'El email ingresado no existe'
+              res.locals.errors = error
+                return res.render('login')
             }
         }
         
@@ -146,16 +144,25 @@ const usersController={
         
     },
     logout: function (req, res) {
+        res.clearCookie('usuario')
         req.session.nombreUsuario = undefined
         return res.redirect('/')
     },
     register: function (req, res) {
-        return res.render('register', {error: ''})
+      if (req.session.nombreUsuario != undefined) {
+        return res.redirect('/')
+      }else{
+        return res.render('register')
+      }
+      
     },
     create: function (req, res) {
+      let error = {}
         /* validacion mail*/
         if(req.body.contrasenia.length<4){
-            return res.render('register', {error: 'La contraseña debe tener mas de tres caracteres'})
+            error.message = 'la contraseña debe tener mas de tres caracteres'
+            res.locals.errors = error
+            return res.render('register')
         }
         else{
             usuario.findOne({
@@ -164,7 +171,9 @@ const usersController={
             .then(function(data){
                 console.log(data);
                 if(data){
-                    return res.render('register', {error: 'El mail introducido ya existe'})
+                  error.message = 'El email ingresado ya existe'
+                  res.locals.errors = error
+                  return res.render('register')
                 }
                 else{
                     usuario.create({

@@ -27,10 +27,15 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }))
-
 app.use(function (req, res, next) {
   res.locals.user = req.session.nombreUsuario
-  res.locals.userId = req.session.identificador
+  return next()
+})
+app.use(function (req, res, next) {
+  if (req.cookies.usuario != undefined) {
+    res.locals.user = req.cookies.usuario
+    req.session.nombreUsuario = req.cookies.usuario
+  }
   return next()
 })
 

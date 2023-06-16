@@ -60,9 +60,9 @@
 				<label for="ftoPerfil" class="form-label">Foto de perfil</label>
 			</div>
 			
-			<% if (error) { %>
+			<% if (locals.errors != undefined) { %>
 				<br>
-				<p><%= error %></p>
+				<p><%= locals.errors.message %></p>
 			<% } %>
 
 			<!-- Submit button -->

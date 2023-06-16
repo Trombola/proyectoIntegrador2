@@ -52,9 +52,9 @@
 					<label class="form-check-label" for="checkbox"> Remember me </label>
 				</div>
 			</div>
-			<% if (error) { %>
+			<% if (locals.errors != undefined) { %>
 				<br>
-				<p><%= error %></p>
+				<p><%= locals.errors.message %></p>
 			<% } %>
 			</div>
 
@@ -64,7 +64,7 @@
 
 			<!-- Register buttons -->
 			<div class="text-center">
-				<p>No estas registrado? <a href="/register">Registro</a></p>
+				<p>No estas registrado? <a href="/users/register">Registro</a></p>
 				<p>o ingrese con:</p>
 				<button type="button" class="btn btn-link btn-floating mx-1">
 				<i class="fab fa-facebook-f"></i>

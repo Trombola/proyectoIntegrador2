@@ -28,8 +28,9 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= producto.producto %></h2> 
-			<% if (user !=  null && userId == producto.dataValues.usuario.dataValues.id) { %>
+			<h2 class="products-title"><%= producto.producto %> creado por:<a href="/users/profile/<%= producto.usuario.id %>"><%= producto.usuario.usernamex %></a> </h2> 
+
+			<% if (user !=  null && user.id == producto.dataValues.usuario.dataValues.id) { %>
 				<form action="/products/formEdit" method="post">
 					<input type="hidden" name="id" value="<%= producto.dataValues.id %>" >
 					<input type="hidden" name="producto" value="<%= producto.dataValues.producto %>">
@@ -71,10 +72,10 @@
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 						</form>
 					<%} else{%>
-						<h2>Para poder agregar comentarios debes iniciar sesion</h2>
+						<a href="/users/login"><h2>Para poder agregar comentarios debes iniciar sesion</h2></a>
 					<%}%>
 					
-					<% if (user !=  null && userId == producto.dataValues.usuario.dataValues.id) {%>
+					<% if (user !=  null && user.id == producto.dataValues.usuario.dataValues.id) {%>
 						<form class="form" action="/products/delete" method="post">
 							<input type="hidden" name="id" value="<%= producto.dataValues.id %>">
 							<button type="submit" class="buy-now-button">DELETE</button>
