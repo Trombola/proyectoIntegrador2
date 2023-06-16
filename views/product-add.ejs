@@ -51,6 +51,9 @@
 					<!-- Submit button -->
 				<button type="submit" class="btn btn-primary btn-block mb-4">Enviar</button>
 			</form>
+			<% if (locals.errors) { %>
+				<p><%= locals.errors.message %></p>
+			<% } %>
 			</div>
 	</div>
 

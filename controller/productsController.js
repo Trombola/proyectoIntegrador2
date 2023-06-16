@@ -28,15 +28,22 @@ const productsController={
         return res.render('product-add')
     },
     create: function (req, res) {
-        //Esto funciona falta lo de la foto
-        console.log(req.body.img);
-        producto.create({
+        let error = {}
+        
+        if(req.body.img.length>249){
+          error.message = 'La url debe contener menos de 249 caracteres'
+          res.locals.errors = error
+          return res.render('product-add')
+        }
+        else{
+          producto.create({
             usuario_id: req.session.nombreUsuario.id,
             foto: req.body.img,
             producto: req.body.nombreProd,
             descripcionProd: req.body.Descripcion,
         })
         return res.redirect('/')
+        }   
     },
     product: function (req, res) {
         let id = req.params.id;
