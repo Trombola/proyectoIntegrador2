@@ -29,30 +29,34 @@
 			<div class="col-12 contenedorPadre1">
 				<h2 class="products-title">Editar perfil</h2>
 			</div>
-		<form action="/baba" method="get" class="formulario">
+		<form action="/users/update" method="post" class="formulario">
+			<div class="form-outline mb-4">
+				<input type="username" id="username" name="usuario" placeholder="<%=info.username%>">
+				<label class="form-label" for="usuario">Usuario</label>
+			</div>
 		<!-- Email input -->
 			<div class="form-outline mb-4">
-				<input type="email" id="mail" name="usuario">
+				<input type="email" id="mail" name="mail" placeholder="<%=info.email%>">
 				<label class="form-label" for="usuario">Email</label>
 			</div>
 
 			<!-- Password input -->
 			<div class="form-outline mb-4">
-				<input type="password" id="contrasena" name="contrasena">
+				<input type="password" id="contrasena" name="contrasenia" placeholder="********">
 				<label class="form-label" for="contrasena">Contraseña</label>
 			</div>
 
 			<div class="form-outline mb-4">
-				<input type="date" id="fecha" name="fecha" >
+				<input type="date" id="fecha" name="fecha" placeholder="<%=info.fecha_de_nacimiento%>">
 				<label for="fecha" class="form-label">fecha de nacimiento</label>
 				
 			</div>
 			<div class="form-outline mb-4">
-				<input type="number" id="dni" name="dni">
+				<input type="number" id="dni" name="dni" placeholder="<%=info.dni%>">
 				<label for="dni" class="form-label">DNI</label>
 			</div>
 			<div class="form-outline mb-4">
-				<input type="text" id="ftoPerfil" name="ftoPerfil">
+				<input type="text" id="ftoPerfil" name="fotoperfil" placeholder="<%=info.foto_de_perfil%>">
 				<label for="ftoPerfil" class="form-label">Foto de perfil</label>
 			</div>
 			

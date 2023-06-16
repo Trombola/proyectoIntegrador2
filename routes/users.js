@@ -9,6 +9,7 @@ router.get('/register', usersController.register);
 router.post('/register', usersController.create)
 router.get('/profile', usersController.perfil);
 router.get('/profile/:id', usersController.perfil_id);
-router.get('/profile-edit', usersController.editar_perfil);
 router.get('/search-usuario', usersController.usuarioResults);
+router.get('/profile-edit',usersController.editarperfil)
+router.post('/update',usersController.guardarprofile)
 module.exports = router;

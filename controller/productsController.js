@@ -71,8 +71,8 @@ const productsController={
         return res.redirect(`/products/product/${id}`)
       })
       .catch(function (err) {console.log(err);})
-      
-      
+
+
       
     },
     editar: function (req,res) {

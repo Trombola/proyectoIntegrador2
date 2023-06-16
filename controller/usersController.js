@@ -30,10 +30,84 @@ const usersController={
         })
         .catch(function(err){console.log(err);})
     },
-    editar_perfil: function (req, res) {
-        return res.render('profile-edit')
+    editarperfil: function (req,res) {
+        let id = req.session.identificador
+        usuario.findOne({
+            where:[{id:id}],
+        })
+        .then((resultado)=>{
+        return res.render("profile-edit",{info:resultado.dataValues})
+        })
     },
-    login: function (req, res) {
+    guardarprofile:(req,res)=>{
+        let id = req.session.identificador
+        if(req.body.usuario != ""){
+            usuario.update({
+              username: req.body.usuario
+            },{
+              where:{
+                id:id
+              }
+            })
+          }
+        if(req.body.fotoperfil != ""){
+            usuario.update({
+              foto_de_perfil: req.body.fotoperfil
+            },{
+              where:{
+                id:id
+              }
+            })
+          }
+        if(req.body.dni != ""){
+            usuario.update({
+              dni: req.body.dni
+            },{
+              where:{
+                id:id
+              }
+            })
+          }
+        if(req.body.mail != ""){
+            usuario.update({
+              email: req.body.mail
+            },{
+              where:{
+                id:id
+              }
+            })
+          }
+        if(req.body.contrasenia != ""){
+            usuario.update({
+              contrasenia: bcrypt.hashSync(req.body.contrasenia,12)
+            },{
+              where:{
+                id:id
+              }
+            })
+          }
+        if(req.body.fecha != ""){
+            usuario.update({
+              fecha_de_nacimiento: req.body.fecha
+            },{
+              where:{
+                id:id
+              }
+            })
+          }
+        if(req.body.fotoperfil != ""){
+            usuario.update({
+              fotoperfil: req.body.fotoperfil
+            },{
+              where:{
+                id:req.body.id
+              }
+            })
+          }
+          req.session.destroy()
+          return res.redirect("/")
+        },
+    login: function (req,res) {
         return res.render('login', {error: ''})
     },
     login_check: function (req, res) {
