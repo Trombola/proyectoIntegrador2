@@ -2,6 +2,7 @@ const db = require('../database/models');
 const producto = db.Producto
 const usuario = db.Usuario
 const comentario = db.Comentario
+//Importamos los operadores de sequelize 
 const op = db.Sequelize.Op;
 
 
@@ -53,13 +54,9 @@ const productsController={
               order: [[{model: db.Comentario, as: 'comentario'}, 'createdAt', 'DESC']]
           })
         .then(function (data) {
-            // Falta ver como podemos hacer para validar si tiene comentarios o no, me tira error
-            if(data){
-                return res.render('product', {producto: data, comentarios: data.comentario})
-            }
-            else{
-                return res.render('product', {producto: data, comentarios: 'No hay comentarios'})
-            }
+          
+          return res.render('product', {producto: data, comentarios: data.comentario})
+            
         })
         .catch(function (err) {console.log(err);})
     },
@@ -71,9 +68,9 @@ const productsController={
       .then(function (data) {
         const id = req.params.id;
         let coment = req.body.comentario
-        console.log(data.id);
+        
         comentario.create({
-         post_id: id, usuario_id: data.id , comentario: coment
+         post_id: id, usuario_id: data.id, comentario: coment
         })
         return res.redirect(`/products/product/${id}`)
       })

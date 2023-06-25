@@ -1,12 +1,14 @@
 const db = require('../database/models')
 const usuario = db.Usuario
 const bcrypt = require('bcrypt')
+//Importamos los operadores de sequelize
 const op = db.Sequelize.Op;
 
 
 const usersController={
     perfil_id: function (req, res) {
         let id = req.params.id
+        //Funcion asincronica, retorna una promesa
         usuario.findByPk(id, 
             {
               include: [{association: 'comentarios'},{association: 'productos'}],
@@ -14,10 +16,12 @@ const usersController={
             }
 
         )
+// El .then() se ejecuta cuando la promesa se resuelve correctamente y se le pasa como parametro a la funcion callback el retorno de la funcion asincronica
         .then(function(data){
             
             return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username, id: data.id})
         })
+//Esta funcion anonima de callback solo se activa en el caso que haya un error, el cual se pasa como parametro y luego de imprime en la consola
         .catch(function(err){console.log(err);})
     },
     editarperfil: function (req,res) {
@@ -107,16 +111,23 @@ const usersController={
     },
     login_check: function (req, res) {
         error = {}
+        //Hacemos la consulta a la base de datos
         usuario.findOne({
             where: [{email: req.body.email}]
         })
+        // Data son los datos retornados por la funcion asincronica
         .then(function(data){
+          //Si encontro datos quiere deicr que el email existe, de lo contrario enviamos el error a la vista.
             if(data){
+              //Chequeamos que la contrasena sea correcta.
                 let check = bcrypt.compareSync(req.body.contrasenia, data.contrasenia)
                 if(check){
                     
+                    //Si el usuario clickeo en recordarme se crea una cookie
                     if(req.body.checkbox == 'on'){
+                      //Guardamos los datos de la consulta en session para usarlos en todas las vistas
                         req.session.nombreUsuario = data
+                      //Creamos la cookie
                         res.cookie('usuario', data, {maxAge: 1000*60*5})
                         return res.redirect('/')
                     }
@@ -149,22 +160,23 @@ const usersController={
         return res.redirect('/')
     },
     register: function (req, res) {
+      //Verificamos que no este logueado
       if (req.session.nombreUsuario != undefined) {
         return res.redirect('/')
       }else{
         return res.render('register')
       }
-      
     },
     create: function (req, res) {
       let error = {}
-        /* validacion mail*/
+        //Validamos la contraseña
         if(req.body.contrasenia.length<4){
             error.message = 'la contraseña debe tener mas de tres caracteres'
             res.locals.errors = error
             return res.render('register')
         }
         else{
+          /* validacion mail*/
             usuario.findOne({
                 where: [{email: req.body.email}]
             })
@@ -179,7 +191,7 @@ const usersController={
                     usuario.create({
                         username: req.body.username,
                         email: req.body.email,
-                        contrasenia: bcrypt.hashSync(req.body.contrasenia, req.body.contrasenia.length),
+                        contrasenia: bcrypt.hashSync(req.body.contrasenia, 12),
                         fecha_de_nacimiento: req.body.fecha,
                         dni: req.body.dni,
                         foto_de_perfil: req.body.ftoPerfil,

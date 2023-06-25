@@ -34,13 +34,16 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center">
+					<% if (user) {%>
+						
+					
 					<% if (user.id == id) {%>
 						<h1 class="main-title"><%- user.username%> 
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
-					<%} else{%>
+					<%}} else{%>
 						<h1 class="main-title"><%- nombreUsuario %> 
 						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 					</h1>
